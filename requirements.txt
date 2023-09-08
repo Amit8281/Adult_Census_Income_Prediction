@@ -22,4 +22,5 @@ statsmodels
 matplotlib
 scikit-learn
 apache-airflow
+pybase64
 -e .

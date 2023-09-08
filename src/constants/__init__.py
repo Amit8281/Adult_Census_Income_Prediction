@@ -39,3 +39,9 @@ TRANSFORMED_TEST_DIR_KEY = 'test.csv'
 # Model Training Constant
 MODEL_TRAINER_KEY = 'model_trainer'
 MODEL_OBJECT = 'model.pkl'
+
+#Batch Prediction
+PREDICTION_FOLDER='batch_Prediction'
+PREDICTION_CSV='prediction_csv'
+PREDICTION_FILE='prediction.csv'
+FEATURE_ENG_FOLDER='feature_eng'
