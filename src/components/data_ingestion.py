@@ -35,15 +35,18 @@ class DataIngestion:
             client = pymongo.MongoClient(MONGO_DB_URL)
             db = client[DATABASE_NAME]
             collection = db[COLLECTION_NAME]
-
+            logging.info("Making Connection with DataBase")
             # Query data from MongoDB collection
             data_from_mongodb = list(collection.find())
 
             if not data_from_mongodb:
                 raise CustomException("No data found in MongoDB collection")
 
-            # Convert data to pandas DataFrame
+            logging.info("Convert data to pandas DataFrame")
             df = pd.DataFrame(data_from_mongodb)
+
+            logging.info("deleting _id column cause it is unnecessary")
+            df.drop('_id',axis=1,inplace=True)
 
             logging.info(f"Downloaded data from MongoDB collection {COLLECTION_NAME}")
             logging.info('Dataset read as pandas DataFrame')
@@ -75,7 +78,4 @@ class DataIngestion:
             logging.error('Exception occurred at Data Ingestion stage')
             raise CustomException(e, sys)
 
-# # Now you can use the DataIngestion class to ingest data from MongoDB
-# if __name__ == "__main__":
-#     obj = DataIngestion()
-#     train_data_path, test_data_path = obj.initiate_data_ingestion()
+

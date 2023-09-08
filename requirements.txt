@@ -16,6 +16,10 @@ xgboost==1.6.2
 pandas
 PyYAML
 numpy
+seaborn
+xgboost
+statsmodels
+matplotlib
 scikit-learn
 apache-airflow
 -e .
